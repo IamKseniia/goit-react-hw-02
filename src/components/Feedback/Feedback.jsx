@@ -1,8 +1,16 @@
 // import s from './Feedback.css';
 
-// const Feedback = () => {
+const Feedback = ({ votingData, totalFeedback }) => {
+  return (
+    <>
+      <ul>
+        <li>good: {votingData.good}</li>
+        <li>neutral: {votingData.neutral}</li>
+        <li>bad: {votingData.bad}</li>
+        <li>total: {totalFeedback}</li>
+      </ul>
+    </>
+  );
+};
 
-//     return ();
-// };
-
-// export default Feedback;
+export default Feedback;

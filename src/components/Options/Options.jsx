@@ -5,11 +5,6 @@ const Options = ({ votingData, updateFeedback }) => {
 
   return (
     <>
-      <ul>
-        <li>good: {votingData.good}</li>
-        <li>neutral: {votingData.neutral}</li>
-        <li>bad: {votingData.bad}</li>
-      </ul>
       {btnOptions.map(option => (
         <button key={option} onClick={() => updateFeedback(option)}>
           {option}
