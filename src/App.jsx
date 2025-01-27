@@ -2,7 +2,7 @@ import Description from './components/Description/Description.jsx';
 import Options from './components/Options/Options.jsx';
 import Feedback from './components/Feedback/Feedback.jsx';
 import Notification from './components/Notification/Notification.jsx';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const App = () => {
   const [votingData, setVotingData] = useState({
@@ -10,6 +10,17 @@ const App = () => {
     neutral: 0,
     bad: 0,
   });
+
+  useEffect(() => {
+    const savedData = JSON.parse(localStorage.getItem('votingData'));
+    if (savedData) {
+      setVotingData(savedData);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('votingData', JSON.stringify(votingData));
+  }, [votingData]);
 
   const updateFeedback = feedbackType => {
     console.log(feedbackType);
