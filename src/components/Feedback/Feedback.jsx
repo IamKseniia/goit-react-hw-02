@@ -1,13 +1,14 @@
 // import s from './Feedback.css';
 
-const Feedback = ({ votingData, totalFeedback }) => {
+const Feedback = ({ votingData, totalFeedback, positiveFeedback }) => {
   return (
     <>
       <ul>
-        <li>good: {votingData.good}</li>
-        <li>neutral: {votingData.neutral}</li>
-        <li>bad: {votingData.bad}</li>
-        <li>total: {totalFeedback}</li>
+        <li>Good: {votingData.good}</li>
+        <li>Neutral: {votingData.neutral}</li>
+        <li>Bad: {votingData.bad}</li>
+        <li>Total: {totalFeedback}</li>
+        <li>Positive: {positiveFeedback}%</li>
       </ul>
     </>
   );

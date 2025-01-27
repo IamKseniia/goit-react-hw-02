@@ -22,12 +22,27 @@ const App = () => {
 
   const totalFeedback = votingData.good + votingData.neutral + votingData.bad;
 
+  const resetFeedback = () => {
+    setVotingData({ good: 0, neutral: 0, bad: 0 });
+  };
+
+  const positiveFeedback = Math.round((votingData.good / totalFeedback) * 100);
+
   return (
     <>
       <Description />
-      <Options votingData={votingData} updateFeedback={updateFeedback} />
-      {totalFeedback !== 0 ? (
-        <Feedback votingData={votingData} totalFeedback={totalFeedback} />
+      <Options
+        votingData={votingData}
+        updateFeedback={updateFeedback}
+        totalFeedback={totalFeedback}
+        resetFeedback={resetFeedback}
+      />
+      {totalFeedback > 0 ? (
+        <Feedback
+          votingData={votingData}
+          totalFeedback={totalFeedback}
+          positiveFeedback={positiveFeedback}
+        />
       ) : (
         <Notification />
       )}

@@ -1,6 +1,11 @@
 // import s from './Options.css';
 
-const Options = ({ votingData, updateFeedback }) => {
+const Options = ({
+  votingData,
+  updateFeedback,
+  totalFeedback,
+  resetFeedback,
+}) => {
   const btnOptions = Object.keys(votingData);
 
   return (
@@ -10,6 +15,7 @@ const Options = ({ votingData, updateFeedback }) => {
           {option}
         </button>
       ))}
+      {totalFeedback > 0 && <button onClick={resetFeedback}>Reset</button>}
     </>
   );
 };
